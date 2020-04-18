@@ -1,0 +1,6 @@
+- hosts: all
+  become: true
+  roles:
+    - sample_role: null
+      vars:
+        sample_var1: Some Data
