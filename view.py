@@ -5,9 +5,11 @@ from flask import jsonify
 import json
 import yaml
 from collections import OrderedDict
+from templates import CSS,NAV
+import uuid
 
 
-app = Flask(__name__, template_folder="/var/www/html/templates")
+app = Flask(__name__, template_folder="/home/sysadmin/configurator-web-ide/templates")
 
 
 class MyDumper(yaml.Dumper):
@@ -39,6 +41,10 @@ def home():
     return render_template("index.html")
 
 
+@app.route("/edit_playbook")
+def edit_playbook():
+    return render_template("edit_playbook.html")
+
 @app.route('/submit', methods = ['POST'])
 def submit():
     yaml_data = request.form['yaml_data']
@@ -49,7 +55,7 @@ def submit():
         YAML = yaml.dump(JSON, default_flow_style=False, Dumper=yaml_mod.dumper, sort_keys=False)
         print(YAML)
         print(JSON)
-        yaml_file = open("user_yaml_files/file.yml","w")
+        yaml_file = open(f"playbooks/{uuid.uuid4()}.yml","w")
         yaml_file.write(YAML)
         yaml_file.close()
     else:

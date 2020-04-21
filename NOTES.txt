@@ -1,0 +1,9 @@
+DB Associations
+
+Each configuration set has the following associations
+- Inventory
+- Playbook
+- Role
+- ansible.cfg
+- logs
+- python libs (virtual environment)

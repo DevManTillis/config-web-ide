@@ -1,3 +1,5 @@
+
+
 <html>
   <head>
     <meta charset="utf-8">
@@ -9,16 +11,25 @@
     <div class="area">
       <div style="margin: auto; width: 75%;background-color: antiquewhite;">
         <h1>Configurator IaC IDE</h1>
-        <h2>Config Sets</h2>
     
           <form action="{{ url_for('submit') }}" method="post">
+            <textarea style="width: 100%;height: 500px;" name="yaml_data" id="yaml_data" rows="4" cols="50">
+    - hosts: all
+      become: yes
+      roles:
+        - sample_role:
+          vars:
+            sample_var1: "Some Data"
+              </textarea>
             <input style="color: red; " type="submit" value="SUBMIT"></input>
           </form>
-
-
+          <h2>Response</h2>
+          <textarea style="width: 100%;height: 100px;" id="response" rows="4" cols="50">{% if messages %}{{messages['response']}}{% endif %}</textarea>
         </div>
     </div>
     
     {% include 'nav.html' %}
   </body>
     </html>
+<!--
+-->
