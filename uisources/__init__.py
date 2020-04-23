@@ -21,4 +21,4 @@ class YamlMods:
             return config
         except Exception as err:
             self.validate = False
-            return err
+            return {"result" : False, "message": str(err)}
