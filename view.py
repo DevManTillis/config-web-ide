@@ -6,11 +6,11 @@ import json
 import yaml
 from uisources import YamlMods
 from collections import OrderedDict
-from templates import CSS,NAV
+from webtemplates import CSS,NAV
 import uuid
 
 
-app = Flask(__name__, template_folder="/home/sysadmin/configurator-web-ide/templates")
+app = Flask(__name__, template_folder="webtemplates")
 
 
 @app.route("/")
