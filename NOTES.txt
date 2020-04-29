@@ -7,3 +7,60 @@ Each configuration set has the following associations
 - ansible.cfg
 - logs
 - python libs (virtual environment)
+
+
+
+
+
+# CONFIG_SET_TABLE = {
+#     "result": True,
+#     "message": {
+#         "config_sets": [{
+#             "config_set_id"  : int(),  # Primary Key
+#             "ansible_params" : str(),  # Parameters to supply to ansible-playbook
+#             "playbooks"      : bool(), # 1:M
+#             "inventory"      : bool(), # 1:M
+#             "logs"           : bool(), # 1:M
+#             "roles"          : bool(), # 1:M
+#             "ansible_cfg"    : bool()
+#         }]
+#     }
+# }
+
+
+# PLAYBOOKS_TABLE = {
+#     "result": True,
+#     "message": {
+#         "playbooks": [{
+#             "config_set_id" : int(), # Primary Key - 1:M Relationship w/ config set
+#             "playbook_yaml" : OrderedDict()
+#             }]
+#     }
+# }
+
+
+# CONFIG_SET = {
+#     "result": True,
+#     "message": {
+#         "config_sets": [{
+#             "config_set_id"  : int(),  # Primary Key
+#             "ansible_params" : str(),  # Parameters to supply to ansible-playbook
+#             "playbooks"      : bool(), # 1:M
+#             "inventory"      : bool(), # 1:M
+#             "logs"           : bool(), # 1:M
+#             "roles"          : bool(), # 1:M
+#             "ansible_cfg"    : bool()
+#         }]
+#     }
+# }
+
+
+# PLAYBOOKS = {
+#     "result": True,
+#     "message": {
+#         "playbooks": [{
+#             "config_set_id" : int(), # Primary Key - 1:M Relationship w/ config set
+#             "playbook_yaml" : OrderedDict()
+#             }]
+#     }
+# }
